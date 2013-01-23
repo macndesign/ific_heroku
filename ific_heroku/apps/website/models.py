@@ -65,6 +65,7 @@ class Equipe(models.Model):
 class Galeria(models.Model):
     ordem = models.AutoField(u'Ordenação das fotos', primary_key=True)
     foto = models.ImageField('Foto', upload_to='images/gallery', null=True, blank=True)
+    thumb = models.ImageField('Thumb', upload_to='images/gallery', null=True, blank=True)
     texto = models.TextField(u'Subtítulo da foto', null=True, blank=True)
     data_pub = models.DateTimeField(u'Data de publicação', default=datetime.datetime.now())
 

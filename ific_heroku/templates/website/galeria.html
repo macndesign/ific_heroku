@@ -73,7 +73,7 @@
             <li class="span3">
                 <div class="thumbnail" style="background: #f1f1f1; height: 210px; overflow: hidden;">
                     <a style="background: #f7f7f7; height: 150px; overflow: hidden;" class="thumbnail fancybox-thumb" rel="fancybox-thumb" href="{{ foto.foto.url }}" title="{% if foto.texto %}{{ foto.texto }}{% endif %}">
-                        <img src="{{ foto.foto.url }}" alt="{% if foto.texto %}{{ foto.texto }}{% endif %}" />
+                        <img src="{{ foto.thumb.url }}" alt="{% if foto.texto %}{{ foto.texto }}{% endif %}" />
                     </a>
                     {% if foto.texto %}
                         <div class="caption">
