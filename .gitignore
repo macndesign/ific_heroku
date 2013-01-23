@@ -5,6 +5,7 @@
 *.egg*
 
 # Editor temp files:
+.idea
 *.swp
 *~
 
