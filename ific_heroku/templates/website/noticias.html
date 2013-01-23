@@ -1,4 +1,4 @@
-{% extends "core/base.html" %}
+{% extends "website/base.html" %}
 
 {% block extra_js %}
     <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
@@ -52,7 +52,7 @@
                 {% if item.texto and item.foto %}
                     <div class="span4 pull-left">
                         <div class="thumbnail">
-                            <img src="{{ item.thumbnail_image.url }}" alt="{{ item.titulo }}" />
+                            <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" />
                         </div>
                     </div>
                     <div class="span5 pull-left">{{ item.texto|truncatewords:"180"|linebreaksbr }}</div>

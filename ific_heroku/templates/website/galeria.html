@@ -1,13 +1,13 @@
-{% extends "core/base.html" %}
+{% extends "website/base.html" %}
 
 {% block extra_js %}
     <!-- Add fancyBox main JS and CSS files -->
-    <script type="text/javascript" src="{{ MEDIA_URL }}fancybox/jquery.fancybox.js?v=2.0.6"></script>
-    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}fancybox/jquery.fancybox.css?v=2.0.6" media="screen" />
+    <script type="text/javascript" src="{{ STATIC_URL }}fancybox/jquery.fancybox.js?v=2.0.6"></script>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fancybox/jquery.fancybox.css?v=2.0.6" media="screen" />
 
     <!-- Add Thumbnail helper (this is optional) -->
-    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.2" />
-    <script type="text/javascript" src="{{ MEDIA_URL }}fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.2"></script>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.2" />
+    <script type="text/javascript" src="{{ STATIC_URL }}fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.2"></script>
 
     <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
         $(function(){
@@ -72,8 +72,8 @@
         {% for foto in items.object_list %}
             <li class="span3">
                 <div class="thumbnail" style="background: #f1f1f1; height: 210px; overflow: hidden;">
-                    <a style="background: #f7f7f7; height: 150px; overflow: hidden;" class="thumbnail fancybox-thumb" rel="fancybox-thumb" href="{{ foto.display_image.url }}" title="{% if foto.texto %}{{ foto.texto }}{% endif %}">
-                        <img src="{{ foto.thumbnail_image.url }}" alt="{% if foto.texto %}{{ foto.texto }}{% endif %}" />
+                    <a style="background: #f7f7f7; height: 150px; overflow: hidden;" class="thumbnail fancybox-thumb" rel="fancybox-thumb" href="{{ foto.foto.url }}" title="{% if foto.texto %}{{ foto.texto }}{% endif %}">
+                        <img src="{{ foto.foto.url }}" alt="{% if foto.texto %}{{ foto.texto }}{% endif %}" />
                     </a>
                     {% if foto.texto %}
                         <div class="caption">

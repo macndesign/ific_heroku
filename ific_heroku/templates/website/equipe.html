@@ -1,4 +1,4 @@
-{% extends "core/base.html" %}
+{% extends "website/base.html" %}
 
 {% block extra_js %}
     <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="span2">
                     <div class="thumbnail" style="background: #f7f7f7">
-                        <img src="{{ item.thumbnail_image.url }}" alt="{{ item.nome }}" title="{{ item.nome }}" width="{{ item.thumbnail_image.width }}" height="{{ item.thumbnail_image.height }}" />
+                        <img src="{{ item.foto.url }}" alt="{{ item.nome }}" title="{{ item.nome }}" width="170" height="170" />
                     </div>
                 </div>
 

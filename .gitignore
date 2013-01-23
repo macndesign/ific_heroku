@@ -17,3 +17,7 @@ build
 
 # Celerybeat scheduler file:
 celerybeat-schedule
+
+# Local
+venv
+media
