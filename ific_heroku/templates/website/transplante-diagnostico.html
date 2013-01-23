@@ -1,0 +1,43 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function(){
+            $(".transplante").addClass("active");
+            $(".transplante").find(".diagnostico").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li>Transplantes <span class="divider">/</span></li>
+    <li class="active">Diagnóstico</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Transplantes</h1>
+    </div>
+
+    <div class="span5 pull-left" style="margin-left: 0; margin-right: 30px">
+        <h2>Diagnóstico</h2><br />
+        <p>Para se beneficiar com o transplante, o paciente deve ser encaminhado ao nosso serviço para triagem. Ele realizará exames laboratoriais e de imagem e será avaliado por toda a equipe multidisciplinar. Essa avaliação permite a compensação da doença hepática, bem como o diagnóstico e o tratamento das possíveis complicações associadas. Se não houver contra-indicações, o paciente será inscrito na Central Estadual de Transplantes de Órgãos, através do seu grupo sanguíneo.</p>
+        <p>Caso sejam detectadas contra-indicações, como doença cardíaca, pulmonar ou neurológica avançadas, câncer em outra parte do corpo, uso de álcool ou drogas ilícitas, infecção grave não controlada ou condições sociais que impossibilitem o seguimento das indicações médicas após o transplante, o indivíduo não será colocado em lista.</p>
+        <p>Para aferir a gravidade do estado clínico do paciente, foi adotado o sistema MELD (adultos) e PELD (crianças com menos de 12 anos), valores numéricos calculados com base em exames laboratoriais de rotina e que estimam o risco de óbito caso o paciente não realize o transplante nos próximos três meses. Quanto maior o valor de MELD ou PELD, maior a urgência do transplante de fígado. O escore MELD é aferido através de 3 exames de sangue: creatinina, bilirrubinas e o INR. Os pacientes listados devem ter consultas médicas periódicas, ocasião onde realizarão exames laboratoriais para renovação do MELD, de acordo com a avaliação da equipe clínica.</p>
+    </div>
+
+    <ul class="thumbnails pull-right">
+        <li class="span4">
+            <div class="thumbnail">
+                <img src="{{ MEDIA_URL }}assets/img/site-diagnostico.jpg" alt="Diagnostico" width="360" height="268">
+            </div>
+        </li>
+    </ul>
+
+{% endblock %}

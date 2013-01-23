@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function(){
+            $(".missao").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li class="active">Missão</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <div class="page-header">
+                <h1>Missão</h1>
+            </div>
+            <p>
+                Promover a saúde através da prevenção, diagnóstico e tratamento das afecções hepáticas, por meio da realização de transplantes de fígado, da pesquisa, educação da população e apoio aos pacientes e suas famílias, com base na justiça e igualdade social.
+            </p>
+        </div>
+
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="{{ MEDIA_URL }}assets/img/site-missao.jpg" alt="Missão" width="360" height="268">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

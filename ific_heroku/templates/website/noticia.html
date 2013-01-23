@@ -1,0 +1,66 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".side-bar").find(".noticias").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+        <li><a href="{% url core:noticias %}">Notícias</a> <span class="divider">/</span></li>
+        <li class="active">{{ noticia.titulo|truncatewords:"8" }}</li>
+    </ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Notícia {% if noticia.destaque %}<small>em destaque</small>{% endif %}</h1>
+    </div>
+
+        <div class="row">
+            <div class="span9">
+                <h2>{{ noticia.titulo }}</h2><br />
+            </div>
+            {% if noticia.subtitulo %}
+                <div class="span9">
+                    <em>{{ noticia.subtitulo }}</em>
+                </div>
+            {% endif %}
+            {% if noticia.texto and noticia.foto %}
+                <div class="span4 pull-left">
+                    <div class="thumbnail">
+                        <img src="{{ noticia.thumbnail_image.url }}" alt="{{ noticia.titulo }}" />
+                    </div>
+                </div>
+                <div class="span5 pull-left">{{ noticia.texto|linebreaksbr }}</div>
+            {% endif %}
+            {% if not noticia.foto %}
+                {% if noticia.texto %}
+                    <div class="span9">{{ noticia.texto|linebreaksbr }}</div>
+                {% endif %}
+            {% endif %}
+            {% if noticia.video %}
+                <div class="span9"><br />
+                    <div class="thumbnail pull-left">
+                        {{ noticia.video|safe }}
+                    </div>
+                </div>
+            {% endif %}
+            {% if noticia.link %}
+                <div class="span9"><br />
+                    <a href="{{ noticia.link }}" target="_blank">
+                        <i class="icon-globe"></i>
+                        Fonte da notícia
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+
+{% endblock %}

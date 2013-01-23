@@ -1,0 +1,20 @@
+@media (max-width: 979px) {
+
+    /* Cor da fonte do menu drop-down */
+    .nav-collapse .nav > li > a, .nav-collapse .dropdown-menu a {
+        color: #e9cbcd;
+    }
+
+    /* Cor da linha separadora do form de busca */
+    .nav-collapse .navbar-form,
+    .nav-collapse .navbar-search {
+        border-top: 1px solid #8c1c24;
+        border-bottom: 1px solid #8c1c24;
+    }
+
+    /* Cor da fonte do categorizador do menu */
+    .nav-collapse .nav .nav-header {
+        color: #d18e92;
+    }
+
+}

@@ -1,0 +1,60 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".side-bar").find(".publicacao-cientifica").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+        <li class="active">Publicações científicas</li>
+        <li class="pull-right">
+            {% if items.has_previous %}
+                <a href="?page={{ items.previous_page_number }}">
+                    <i class="icon-arrow-left"></i>
+                    Anterior
+                </a> -
+            {% endif %}
+            Página {{ items.number }} de {{ items.paginator.num_pages }}
+            {% if items.has_next %}
+                - <a href="?page={{ items.next_page_number }}">
+                Próxima
+                <i class="icon-arrow-right"></i>
+            </a>
+            {% endif %}
+        </li>
+    </ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Publicações científicas</h1>
+    </div>
+
+    <div class="row">
+    {% if items.object_list %}
+        {% for item in items.object_list %}
+            <div class="span3" style="margin-bottom: 30px">
+                <div class="thumbnail" style="background: #f7f7f7">
+                    <div class="page-header" style="padding: 0 0 5px 0; margin: 0">
+                        <strong>{{ item.titulo|truncatewords:"2" }}</strong>
+                    </div>
+                    <p style="height: 100px; overflow: auto; padding-top: 5px">{{ item.descricao|truncatewords:"23" }}</p>
+                    <a href="{{ item.arquivo.url }}" target="_blank">
+                        <i class="icon-download"></i>
+                        Download do arquivo
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+
+{% endblock %}

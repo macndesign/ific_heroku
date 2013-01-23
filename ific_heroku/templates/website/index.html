@@ -1,0 +1,201 @@
+<!-- Breadcrumber -->
+<ul class="breadcrumb">
+    <li><a href="#">Home</a> <span class="divider">/</span></li>
+    <li><a href="#">Library</a> <span class="divider">/</span></li>
+    <li class="active">Data</li>
+</ul>
+
+<!-- Título -->
+<div class="page-header">
+    <h1>Destaques <small>Principais notícias da semana</small></h1>
+</div>
+
+<div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="{{ MEDIA_URL }}assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="">
+            <div class="carousel-caption">
+                <h4>First Thumbnail label</h4>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{{ MEDIA_URL }}assets/img/bootstrap-mdo-sfmoma-02.jpg" alt="">
+            <div class="carousel-caption">
+                <h4>Second Thumbnail label</h4>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{{ MEDIA_URL }}assets/img/bootstrap-mdo-sfmoma-03.jpg" alt="">
+            <div class="carousel-caption">
+                <h4>Third Thumbnail label</h4>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+<!-- Título -->
+<div class="page-header">
+    <h1>Listagem <small>Itens cadastrados na base de dados</small></h1>
+</div>
+
+<!-- Listagem -->
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a href="#">Default</a></td>
+        <td>No styles, just columns and rows</td>
+        <td>
+            <i class="icon-edit"></i>
+            <a href="#">Editar</a>&nbsp;
+            <i class="icon-trash"></i>
+            <a href="#">Excluir</a>
+        </td>
+    </tr>
+    <tr>
+        <td><a href="#">Basic</a></td>
+        <td>Only horizontal lines between rows</td>
+        <td>
+            <i class="icon-edit"></i>
+            <a href="#">Editar</a>&nbsp;
+            <i class="icon-trash"></i>
+            <a href="#">Excluir</a>
+        </td>
+    </tr>
+    <tr>
+        <td><a href="#">Bordered</a></td>
+        <td>Rounds corners and adds outer border</td>
+        <td>
+            <i class="icon-edit"></i>
+            <a href="#">Editar</a>&nbsp;
+            <i class="icon-trash"></i>
+            <a href="#">Excluir</a>
+        </td>
+    </tr>
+    <tr>
+        <td><a href="#">Zebra-stripe</a></td>
+        <td>Adds light gray background color to odd rows (1, 3, 5, etc)</td>
+        <td>
+            <i class="icon-edit"></i>
+            <a href="#">Editar</a>&nbsp;
+            <i class="icon-trash"></i>
+            <a href="#">Excluir</a>
+        </td>
+    </tr>
+    <tr>
+        <td><a href="#">Condensed</a></td>
+        <td>Cuts vertical padding in half, from 8px to 4px, within all <code>td</code> and <code>th</code> elements</td>
+        <td>
+            <i class="icon-edit"></i>
+            <a href="#">Editar</a>&nbsp;
+            <i class="icon-trash"></i>
+            <a href="#">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="btn-toolbar">
+    <div class="btn-group">
+        <button class="btn">
+            <i class="icon-arrow-left"></i>
+            Anterior
+        </button>
+        <button class="btn">1</button>
+        <button class="btn disabled">2</button>
+        <button class="btn">3</button>
+        <button class="btn">4</button>
+        <button class="btn">5</button>
+        <button class="btn">
+            Próximo
+            <i class="icon-arrow-right"></i>
+        </button>
+    </div>
+    <div class="btn-group pull-right">
+        <button class="btn btn-inverse">
+            <i class="icon-chevron-left icon-white"></i>
+            Voltar
+        </button>
+    </div>
+</div>
+
+<!-- Título -->
+<div class="page-header">
+    <h1>Cadastro <small>Preencha o formulário abaixo para efetuar o cadastro</small></h1>
+</div>
+
+<!-- Formulário -->
+<div class="alert">
+    <button class="close" data-dismiss="alert">×</button>
+    <strong>Warning!</strong> Best check yo self, you're not looking too good.
+</div>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="input01">Text input</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input01">
+                <p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="optionsCheckbox">Checkbox</label>
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" id="optionsCheckbox" value="option1">
+                    Option one is this and that—be sure to include why it's great
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="select01">Select list</label>
+            <div class="controls">
+                <select id="select01">
+                    <option>something</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="multiSelect">Multicon-select</label>
+            <div class="controls">
+                <select multiple="multiple" id="multiSelect">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="fileInput">File input</label>
+            <div class="controls">
+                <input class="input-file" id="fileInput" type="file">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="textarea">Textarea</label>
+            <div class="controls">
+                <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button class="btn">Cancel</button>
+        </div>
+    </fieldset>
+</form>

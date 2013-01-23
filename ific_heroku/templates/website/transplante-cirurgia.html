@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function(){
+            $(".transplante").addClass("active");
+            $(".transplante").find(".cirurgia").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li>Transplantes <span class="divider">/</span></li>
+    <li class="active">Cirurgia</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Transplantes</h1>
+    </div>
+
+    <div class="span5 pull-left" style="margin-left: 0; margin-right: 30px">
+        <h2>Cirurgia</h2><br />
+        <p>A cirurgia é considerada de alta complexidade e pode durar de 4 a 10 horas. Consiste na substituição do fígado doente por um órgão novo proveniente de um doador falecido, que será inserido na cavidade abdominal no mesmo local do fígado original. Após a cirurgia, o paciente permanecerá na Unidade de Terapia Intensiva e será acompanhado por um médico intensivista, disponível 24 horas por dia, até a sua transferência para a enfermaria.</p>
+        <p>A média de permanência hospitalar após a cirurgia é de cerca de uma a três semanas. Neste período, o paciente será assistido por médicos cirurgiões, hepatologistas, infectologistas, enfermeiras, além do suporte de nutricionistas, fisioterapeutas e psicólogos. As visitas aos pacientes são feitas diariamente visando à profilaxia e vigilância de infecções, bem como o adequado funcionamento dos outros órgãos, especialmente rins e pulmões. Ainda durante a internação hospitalar o paciente começa a receber as medicações contra a rejeição, chamados imunossupressores. No nosso serviço, o esquema utilizado inclui corticóides, tacrolimus e micofenolato.</p>
+    </div>
+
+    <ul class="thumbnails pull-right">
+        <li class="span4">
+            <div class="thumbnail">
+                <img src="{{ MEDIA_URL }}assets/img/site-cirurgia.jpg" alt="Cirurgia" width="360" height="268">
+            </div>
+        </li>
+    </ul>
+
+{% endblock %}

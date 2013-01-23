@@ -1,0 +1,84 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".side-bar").find(".noticias").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+        <li class="active">Notícias</li>
+        <li class="pull-right">
+            {% if items.has_previous %}
+                <a href="?page={{ items.previous_page_number }}">
+                    <i class="icon-arrow-left"></i>
+                    Anterior
+                </a> -
+            {% endif %}
+            Página {{ items.number }} de {{ items.paginator.num_pages }}
+            {% if items.has_next %}
+                - <a href="?page={{ items.next_page_number }}">
+                Próxima
+                <i class="icon-arrow-right"></i>
+            </a>
+            {% endif %}
+        </li>
+    </ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Notícias</h1>
+    </div>
+
+    {% if items.object_list %}
+        {% for item in items.object_list %}
+            <div class="row">
+                <div class="span9">
+                    <h2><a href="{{ item.get_absolute_url }}">{{ item.titulo }}</a></h2><br />
+                </div>
+                {% if item.subtitulo %}
+                    <div class="span9">
+                        <em>{{ item.subtitulo }}</em>
+                    </div>
+                {% endif %}
+                {% if item.texto and item.foto %}
+                    <div class="span4 pull-left">
+                        <div class="thumbnail">
+                            <img src="{{ item.thumbnail_image.url }}" alt="{{ item.titulo }}" />
+                        </div>
+                    </div>
+                    <div class="span5 pull-left">{{ item.texto|truncatewords:"180"|linebreaksbr }}</div>
+                {% endif %}
+                {% if not item.foto %}
+                    {% if item.texto %}
+                        <div class="span9">{{ item.texto|truncatewords:"180"|linebreaksbr }}</div>
+                    {% endif %}
+                {% endif %}
+                {% if item.video %}
+                    <div class="span9"><br />
+                        <div class="thumbnail pull-left">
+                            {{ item.video|safe }}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if item.link %}
+                    <div class="span9"><br />
+                        <a href="{{ item.link }}" target="_blank">
+                            <i class="icon-globe"></i>
+                            Fonte da notícia
+                        </a>
+                    </div>
+                {% endif %}
+            </div><hr />
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

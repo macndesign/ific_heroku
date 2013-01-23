@@ -1,0 +1,91 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <!-- Add fancyBox main JS and CSS files -->
+    <script type="text/javascript" src="{{ MEDIA_URL }}fancybox/jquery.fancybox.js?v=2.0.6"></script>
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}fancybox/jquery.fancybox.css?v=2.0.6" media="screen" />
+
+    <!-- Add Thumbnail helper (this is optional) -->
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.2" />
+    <script type="text/javascript" src="{{ MEDIA_URL }}fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.2"></script>
+
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".side-bar").find(".galeria").addClass("active");
+
+            $(".fancybox-thumb").fancybox({
+                prevEffect	: 'none',
+                nextEffect	: 'none',
+                helpers	: {
+                    title	: {
+                        type: 'outside'
+                    },
+                    overlay	: {
+                        opacity : 0.8,
+                        css : {
+                            'background-color' : '#000'
+                        }
+                    },
+                    thumbs	: {
+                        width	: 50,
+                        height	: 50
+                    }
+                }
+            });
+
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li class="active">Galeria</li>
+    <li class="pull-right">
+        {% if items.has_previous %}
+          <a href="?page={{ items.previous_page_number }}">
+              <i class="icon-arrow-left"></i>
+              Anterior
+          </a> -
+        {% endif %}
+        Página {{ items.number }} de {{ items.paginator.num_pages }}
+        {% if items.has_next %}
+            - <a href="?page={{ items.next_page_number }}">
+                Próxima
+                <i class="icon-arrow-right"></i>
+            </a>
+        {% endif %}
+    </li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Galeria</h1>
+    </div>
+
+    <ul class="thumbnails">
+    {% if items.object_list %}
+        {% for foto in items.object_list %}
+            <li class="span3">
+                <div class="thumbnail" style="background: #f1f1f1; height: 210px; overflow: hidden;">
+                    <a style="background: #f7f7f7; height: 150px; overflow: hidden;" class="thumbnail fancybox-thumb" rel="fancybox-thumb" href="{{ foto.display_image.url }}" title="{% if foto.texto %}{{ foto.texto }}{% endif %}">
+                        <img src="{{ foto.thumbnail_image.url }}" alt="{% if foto.texto %}{{ foto.texto }}{% endif %}" />
+                    </a>
+                    {% if foto.texto %}
+                        <div class="caption">
+                            <p>{{ foto.texto|truncatewords:"7" }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </li>
+        {% empty %}
+            <li class="alert">Não há imagens!</li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+
+{% endblock %}

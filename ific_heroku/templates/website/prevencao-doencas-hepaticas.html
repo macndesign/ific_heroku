@@ -1,0 +1,125 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".prevencao").addClass("active");
+            $(".prevencao").find(".doencas-hepaticas").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li>Prevenção <span class="divider">/</span></li>
+    <li class="active">Doenças Hepáticas</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Prevenção</h1>
+    </div>
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <h2>Doenças Hepáticas</h2><br />
+            <h3>Hepatites A e E</h3><br />
+            <p>A hepatite A é uma doença contagiosa, causada pelo vírus A e também conhecida como “hepatite infecciosa”. Sua transmissão é fecal-oral, por contato entre indivíduos ou por meio de água ou alimentos contaminados pelo vírus.</p>
+            <p>A hepatite do tipo E é uma doença infecciosa viral causada pelo vírus E. De ocorrência rara no Brasil, é comum na Ásia e África. Sua transmissão é também fecal-oral, semelhante à hepatite A.</p>
+            <h4>Para evitar, recomenda-se:</h4>
+            <ul>
+                <li>Lavar as mãos após ir ao banheiro ou trocar fraldas e antes de comer ou preparar alimentos.</li>
+                <li>Lavar bem, com água tratada, clorada ou fervida, os alimentos que são consumidos crus, deixando-os de molho por 30 minutos.</li>
+                <li>Cozinhar bem os alimentos antes de consumi-los, principalmente: mariscos, frutos do mar e carne de porco.</li>
+                <li>Lavar adequadamente: pratos, copos, talheres e mamadeiras.</li>
+                <li>Não tomar banho ou brincar perto de valões, riachos, chafarizes, enchentes ou próximo de esgoto a céu aberto.</li>
+                <li>Evitar a construção de fossas próximas a poços e nascentes de rios, para não comprometer o lençol d'água que alimenta o poço.</li>
+                <li>Caso haja algum doente com hepatite A em casa, utilizar hipoclorito de sódio a 2,5% ou água sanitária ao lavar o banheiro.</li>
+                <li>No caso de creches, pré-escolas, lanchonetes, restaurantes e instituições fechadas, adotar medidas rigorosas de higiene; tal como a desinfecção de </li>
+                <li>objetos, bancadas e chão, utilizando hipoclorito de sódio a 2,5% ou água sanitária.</li>
+                <li>Para tratar a água, basta ferver ou colocar duas gotas de hipoclorito de sódio em um litro de água, 30 minutos antes de bebê-la. Deixar o recipiente tampado para que o hipoclorito possa agir, tornando a água potável para o consumo. Na ausência de hipoclorito de sódio, pode-se preparar uma solução caseira com uma colher de sopa de água sanitária a 2,5% (sem alvejante), diluída em um litro de água.</li>
+            </ul>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+        <ul class="thumbnails pull-right">
+            <li class="span4">Atualmente, o Sistema Único de Saúde disponibiliza uma vacina específica contra o vírus causador da hepatite A. Mas essa vacina só é recomendada em situações especiais, como em pessoas com outras doenças crônicas no fígado ou que fizeram transplante de medula óssea, por exemplo.</li>
+        </ul>
+    </div><br />
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <h3>Hepatites B e D</h3><br />
+            <p>A hepatite do tipo B é uma doença infecciosa causada pelo vírus B (VHB). Como o VHB está presente no sangue, no esperma e no leite materno, a hepatite B é considerada uma doença sexualmente transmissível.</p>
+            <p>A hepatite D, também chamada de Delta, é causada pelo vírus D (VHD). Esse vírus depende da presença do vírus do tipo B para infectar uma pessoa. E sua transmissão, assim como a do vírus B, ocorre:</p>
+            <ul>
+                <li>Relações sexuais sem camisinha com uma pessoa infectada;</li>
+                <li>Mãe infectada para o filho durante a gestação, o parto ou a amamentação;</li>
+                <li>Compartilhar material para uso de drogas (seringas, agulhas, cachimbos), de higiene pessoal (lâminas de barbear e depilar, escovas de dente, alicates de unha ou outros objetos que furam ou cortam) ou de confecção de tatuagem e colocação de piercings, por transfusão de sangue contaminado.</li>
+            </ul>
+            <h4>Para evitar, recomenda-se:</h4>
+            <ul>
+                <li>Tomar as três doses da vacina;</li>
+                <li>usar camisinha em todas as relações sexuais;</li>
+                <li>Não compartilhar objetos de uso pessoal: como lâminas de barbear e depilar, escovas de dente, material de manicure e pedicure;</li>
+                <li>Não compartilhar equipamentos uso de drogas, confecção de tatuagem e colocação de piercings;</li>
+                <li>Fazer o pré-natal e os exames para detectar as hepatites e prevenir a contaminação do filho seguindo todas as recomendações médicas, inclusive sobre o tipo de parto e a não-amamentação.</li>
+            </ul>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <p>Atualmente, o Sistema Único de Saúde disponibiliza gratuitamente vacina contra a hepatite B em qualquer unidade de saúde. Mas, é necessário:</p>
+                <ul>
+                    <li>Ter até 24 anos, (a faixa será ampliada este ano para 29 anos);</li>
+                    <li>Pertencer ao grupo de maior vulnerabilidade.</li>
+                </ul>
+            </li>
+        </ul>
+    </div><br />
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <h3>Hepatite C</h3><br />
+            <p>É a hepatite causada pelo vírus C (VHC). O vírus C, assim como o vírus causador da hepatite B, está presente no sangue. Não existe vacina contra a hepatite C.</p>
+            <p>Para evitar, recomenda-se:</p>
+            <ul>
+                <li>Verificação da procedência na transfusão de sangue;</li>
+                <li>Não compartilhar objetos de uso pessoal: como lâminas de barbear e depilar, escovas de dente, material de manicure e pedicure;</li>
+                <li>Não compartilhar equipamentos uso de drogas, confecção de tatuagem e colocação de piercings;</li>
+                <li>Fazer o pré-natal e os exames para detectar as hepatites e prevenir a contaminação do filho seguindo todas as recomendações médicas, inclusive sobre o tipo de parto e a não-amamentação.</li>
+                <li>Prevenir-se nas relações sexuais (ligue para o Disque Saúde e saiba onde adquiir preservativos (0800 61 1997).</li>
+            </ul>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <p>O surgimento de sintomas em pessoas com hepatite C aguda é muito raro. Entretanto, quando aparecem são cansaço, tontura, enjoo e/ou vômitos, febre, dor abdominal, pele e olhos amarelados, urina escura e fezes claras. Por se tratar de uma doença silenciosa, é importante consultar um médico regularmente e fazer os exames de rotina que detectam todas as formas de hepatite. O diagnóstico precoce da hepatite amplia a eficácia do tratamento.</p>
+                <p>Quando a reação inflamatória persiste sem melhora por mais de seis meses, comum em 80% dos casos, os profissionais de saúde consideram que a infecção evoluiu para a forma crônica. O tratamento é complexo e dependerá da realização de exames específicos, como biópsia hepática e exames de biologia molecular. As chances de cura variam de 50 a 80% dos casos.</p>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

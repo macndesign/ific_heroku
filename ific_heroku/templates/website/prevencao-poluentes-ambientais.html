@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".prevencao").addClass("active");
+            $(".prevencao").find(".poluentes-ambientais").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li>Prevenção <span class="divider">/</span></li>
+    <li class="active">Poluentes Ambientais</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Prevenção</h1>
+    </div>
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <h2>Poluentes Ambientais</h2><br />
+            <p>Os vapores de solventes de tinta, sprays inseticidas e outros aerossóis são captados por minúsculos vasos sanguíneos nos seus pulmões e carreados para o seu fígado, onde eles são destoxificados e eliminados na sua bile. A quantidade e concentração destes químicos devem ser controlados para prevenir danos ao fígado. Certifique-se que você disponha de boa ventilação, utilize máscaras, cubra a sua pele e remova qualquer químico que tenha entrado em contato com a sua pele, com água e sabão, o mais rápido possível.</p>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

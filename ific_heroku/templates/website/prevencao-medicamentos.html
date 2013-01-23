@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".prevencao").addClass("active");
+            $(".prevencao").find(".medicamentos").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li>Prevenção <span class="divider">/</span></li>
+    <li class="active">Medicamentos</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Prevenção</h1>
+    </div>
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <h2>Medicamentos</h2><br />
+            <p>Medicamentos, inclusive os aparentemente inofensivos, como o paracetamol, nunca devem ser tomados com bebidas alcoólicas. Muitas drogas e medicamentos prescritos ou isentos se prescrição contêm químicos que podem ser potencialmente prejudiciais às células do seu fígado, principalmente se ingeridas com álcool.</p>
+            <p>Vários remédios de uso clínico podem causar hepatite em indivíduos suscetíveis. Não se pode prever quem terá hepatite por determinada droga, porém, indivíduos que já têm outras formas de doença do fígado correm maior risco. Alguns medicamentos relacionados com hepatite são: paracetamol, antibióticos e antifúngicos (eritromicina, tetraciclina, sulfas, cetoconazol e nitrofurantoína), anabolizantes (hormônios usados para melhorar o desempenho físico), drogas antipsicóticas e calmantes, drogas antiarrítimicas (amiodarona), anti-hipertensivos (metildopa), antituberculosos. Anticoncepcionais orais também são ocasionalmente mencionados.</p>
+            <p>Cuidado com o uso de fitoterápicos, ervas, chás e suplementos dietéticos. O uso excessivo dessas substâncias também pode causar hepatite. Procure sempre seu médico e esclareça suas dúvidas! Cuidado com o que você toma!</p>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

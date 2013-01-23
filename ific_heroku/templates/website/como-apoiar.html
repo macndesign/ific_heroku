@@ -1,0 +1,47 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".side-bar").find(".como-apoiar").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li class="active">Como Apoiar o IFIC</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Como Apoiar o IFIC</h1>
+    </div>
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <div class="alert">
+                Doações podem ser depositadas na conta corrente da <strong>Associação Instituto do Fígado do Ceará</strong>, CNPJ: 12.915.335/0001-19
+            </div>
+            <h3>Dados da conta:</h3>
+            <ul>
+                <li><strong>Banco do Brasil</strong></li>
+                <li>Agência: <strong>2925-4</strong></li>
+                <li>Conta Corrente: <strong>20.626-1</strong></li>
+            </ul>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

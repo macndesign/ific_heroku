@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function(){
+            $(".transplante").addClass("active");
+            $(".transplante").find(".pos-operatorio").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li>Transplantes <span class="divider">/</span></li>
+    <li class="active">Pós Operatório</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Transplantes</h1>
+    </div>
+
+    <div class="span5 pull-left" style="margin-left: 0; margin-right: 30px">
+        <h2>Pós Operatório</h2><br />
+        <p>Após a alta hospitalar os pacientes retornarão regularmente ao ambulatório de pós-transplante de fígado, onde as drogas imunossupressoras serão progressivamente reduzidas. Podem ocorrer intercorrências, durante a internação ou após a alta, como complicações cirúrgicas, infecções graves, rejeição e, portanto, as visitas médicas devem ser regulares para diagnóstico precoce e tratamento imediato. A sobrevida pós-transplante chega a 90% em um ano e gradualmente os pacientes podem retornar à sua vida normal.</p>
+    </div>
+
+    <ul class="thumbnails pull-right">
+        <li class="span4">
+            <div class="thumbnail">
+                <img src="http://placehold.it/360x268" alt="">
+            </div>
+        </li>
+    </ul>
+
+{% endblock %}

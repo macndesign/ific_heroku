@@ -1,0 +1,58 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".side-bar").find(".equipe").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+        <li class="active">Equipe</li>
+        <li class="pull-right">
+            {% if items.has_previous %}
+                <a href="?page={{ items.previous_page_number }}">
+                    <i class="icon-arrow-left"></i>
+                    Anterior
+                </a> -
+            {% endif %}
+            Página {{ items.number }} de {{ items.paginator.num_pages }}
+            {% if items.has_next %}
+                - <a href="?page={{ items.next_page_number }}">
+                Próxima
+                <i class="icon-arrow-right"></i>
+            </a>
+            {% endif %}
+        </li>
+    </ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Equipe</h1>
+    </div>
+
+    {% if items.object_list %}
+        {% for item in items.object_list %}
+            <div class="row">
+                <div class="span2">
+                    <div class="thumbnail" style="background: #f7f7f7">
+                        <img src="{{ item.thumbnail_image.url }}" alt="{{ item.nome }}" title="{{ item.nome }}" width="{{ item.thumbnail_image.width }}" height="{{ item.thumbnail_image.height }}" />
+                    </div>
+                </div>
+
+                <h3 class="span7">{{ item.nome }}</h3>
+                <p class="span7">{{ item.resumo|linebreaksbr }}</p>
+                <p class="span7">{% if item.email %}Email: <a href="mailto:{{ item.email }}" target="_blank">{{ item.email }}</a><br />{% endif %}
+                {% if item.site %}Site: <a href="{{ item.site }}" target="_blank">{{ item.site }}</a>{% endif %}</p>
+            </div><br />
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

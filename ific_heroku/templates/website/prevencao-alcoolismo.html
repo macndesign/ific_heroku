@@ -1,0 +1,73 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".prevencao").addClass("active");
+            $(".prevencao").find(".alcoolismo").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li>Prevenção <span class="divider">/</span></li>
+    <li class="active">Alcoolismo</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Prevenção</h1>
+    </div>
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <h2>Alcoolismo</h2><br />
+            <p>Se você é como muitos brasileiros, você deve beber álcool eventualmente. Beber moderadamente ou “socialmente” significa que uma pessoa consome quantidades de bebidas alcoólicas que geralmente não representa riscos à saúde. Para a maioria das pessoas, essa quantidade deve ser de apenas um drinque: uma latinha de cerveja (300 ml) ou uma taça de vinho (120 ml) ou 36 ml de uísque, pinga ou vodka (um pouco menos que uma dose). Mas você sabia que mesmo bebendo moderadamente não está livre de riscos, principalmente se já estiver doente? E que, se você bebe mais que moderadamente, você pode estar se arriscando a ter sérios problemas com sua saúde e com seus relacionamentos?</p>
+            <p>Certo grau de embriaguez é a reação normal do organismo posto em contato com o álcool. Conhecemos pessoas que bebem quantidades enormes e aparentemente não se abalam. No início seu efeito é agradável. Depois, o organismo cria resistência e exige doses maiores para repetir a sensação de bem estar. Essa resistência à ação do álcool é o primeiro passo para que a doença do alcoolismo se instale e o fígado entre em processo de deterioração. São tantas as consequências desastrosas na vida de um dependente que, muitas vezes, os danos causados nos diferentes órgãos são postos em segundo plano.</p>
+            <p>Um grande problema em relação ao álcool é que ele custa pouco, é facilmente encontrado e legalmente obtido. Além disso, tem o poder de libertar-nos das inibições que nos constrangem. O jovem começa a beber na adolescência, fica mais extrovertido, mas não imagina que isso pode significar o fim de sua vida em 20 ou 30 anos porque seu fígado foi irremediavelmente destruído.</p>
+            <p>A maioria das pessoas sabe que o fígado age como um filtro e que pode ser seriamente danificado pelo consumo excessivo de álcool. Um dos feitos mais importantes deste órgão é a sua habilidade de se regenerar. No entanto, ao sobrecarregar o seu fígado com o consumo excessivo de álcool, você pode fazer com que as células do fígado sejam danificadas e transformadas permanentemente em tecido de cicatrização. Isto é denominado cirrose.</p>
+            <h3>O que é alcoolismo?</h3>
+            <p>O alcoolismo é uma doença tratável caracterizada pelos seguintes elementos:</p>
+            <ul>
+                <li>Compulsão: uma necessidade forte ou desejo incontrolável de beber.</li>
+                <li>Perda de controle: a incapacidade de parar de beber depois que já começou.</li>
+                <li>Dependência física: a ocorrência de sintomas de abstinência, como náuseas, suores, tremores e ansiedade, quando se pára de beber após um período bebendo muito. Tais sintomas são aliviados bebendo álcool.</li>
+                <li>Tolerância: a necessidade de aumentar as quantias de álcool para se sentir “alto”.</li>
+            </ul>
+            <p>Em nossa sociedade, prevalece o mito de que problema com álcool é sinal de fraqueza moral. Como resultado, você pode até achar que procurar ajuda é admitir algum tipo de defeito que você deveria se envergonhar. Contudo, o alcoolismo não é uma doença que indique maior fraqueza que o diabetes ou a asma. Se o problema for identificado precocemente, maior será a chance de recuperação. A maioria dos dependentes não consegue se valer só de “força de vontade” para parar de beber. Estas pessoas têm compulsão, uma necessidade pelo álcool que se mostra tão forte quanto a sede ou a fome.</p>
+            <h3>O que pode acontecer com a saúde a longo prazo?</h3>
+            <p>Doenças do fígado; como hepatite e cirrose, doenças do coração, do pâncreas e alguns tipos de câncer podem se desenvolver lentamente e tornar-se evidente após o uso intenso de álcool por muito tempo. Podem ocorrer ainda vários outros sérios problemas, tais como gastrites, lesões dos nervos, confusão mental, perda de memória, distúrbios psiquiátricos, diminuição do desejo sexual, impotência, abortos, esterilidade, pressão alta, desequilíbrios metabólicos, nutricionais e imunológicos. Todos esses prejuízos não dependem do tipo de bebida, tanto faz se você bebe cerveja, cachaça, rum, vodka ou uísque. As mulheres podem desenvolver problemas após terem consumido menor quantidade de álcool que homens e por um período de tempo mais curto.</p>
+            <p>Quando há o desenvolvimento de cirrose no fígado, as células saudáveis são destruídas e substituídas por cicatrizes. As cicatrizes impedem o fígado de realizar suas tarefas. Além disso, adicionando calorias ao seu organismo, o álcool reduzirá ainda mais o seu apetite e, consequentemente, você reduzirá a ingestão de alimentos com proteínas importantes para o fígado. Você precisará parar de beber totalmente para aliviar o seu fígado. Isto significa evitar qualquer tipo de bebida alcoólica. Se você continuar a beber, poderá haver falência total do funcionamento hepático. Felizmente, comer bem e evitar o álcool podem ainda prevenir estragos adicionais para as células que ainda estejam saudáveis.</p>
+            <h3>Como saber se eu tenho problemas com a bebida?</h3>
+            <ul>
+                <li>Você já sentiu que deveria diminuir a bebida?</li>
+                <li>As pessoas já te irritaram quando criticam sua bebida?</li>
+                <li>Você já se sentiu mal ou culpado a respeito de sua bebida?</li>
+                <li>Você já tomou bebida alcoólica pela manhã para “aquecer” os nervos ou para se livrar de uma ressaca?</li>
+            </ul>
+            <p>Apenas um “sim” sugere um possível problema com álcool. É importante ir ao médico ou outro profissional da área de saúde imediatamente para discutir suas respostas a estas perguntas. Eles podem te ajudar a determinar se você tem ou não um problema com a bebida e recomendar a melhor atitude a ser tomada.</p>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="{{ MEDIA_URL }}assets/img/site-alccolismo.jpg" alt="Alcoolismo" width="360" height="268">
+                </div>
+            </li>
+        </ul>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <h3>O que é o AA?</h3>
+                <p>Alcoólicos Anônimos é uma irmandade de mundial de homens e mulheres voluntários, vindos de todas as camadas sociais, que compartilham suas experiências, forças e esperanças, a fim de resolver seu problema comum e ajudar outros na recuperação do alcoolismo. É gratuito e o único requisito para ser membro é o desejo de parar de beber.</p>
+                <p>Acesse o <a href="http://www.alcoolicosanonimos.org.br">link</a> para ver endereços e reuniões: <a href="http://www.alcoolicosanonimos.org.br">alcoolicosanonimos.org.br</a></p>
+                <p> Aprenda a dizer “não”. Procure ajuda.</p>
+            </li>
+        </ul>
+    </div><br />
+
+{% endblock %}

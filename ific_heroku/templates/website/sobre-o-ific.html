@@ -1,0 +1,70 @@
+{% extends "website/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function(){
+            $(".home").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li class="active">Sobre o IFIC</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    {% if destaques %}
+        <div class="page-header">
+            <h1>Destaques <small>Principais notícias da semana</small></h1>
+        </div>
+        <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+                {% for destaque in destaques %}
+                <div class="item {% if forloop.first %}active{% endif %}">
+                    <a href="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}">
+                        <img src="{{ destaque.display_image.url }}" alt="{{ destaque.titulo }}" width="{{ destaque.display_image.width }}" height="{{ destaque.display_image.height }}" />
+                        <div class="carousel-caption">
+                            <h4>{{ destaque.titulo|truncatewords:"12" }}</h4>
+                            {% if destaque.subtitulo or destaque.texto %}
+                            <p>
+                               {% if destaque.subtitulo %}
+                                   {{ destaque.subtitulo }}
+                               {% else %}
+                                   {{ destaque.texto|truncatewords:"14" }}
+                               {% endif %}
+                            </p>
+                            {% endif %}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <div class="page-header">
+                <h1>Sobre o IFIC</h1>
+            </div>
+            <p>A equipe multidisciplinar do Hospital Universitário Walter Cantídio (HUWC), sensibilizada com o sofrimento dos pacientes portadores de doenças hepáticas, idealizou em 2010 e implantou em 2011, o Instituto do Fígado do Ceará -IFIC, com o intuito de promover a saúde através da prevenção, diagnóstico e tratamento das afecções hepáticas, não só por meio da realização de transplantes de fígado, mas da pesquisa, educação da população e dando apoio aos pacientes e suas famílias, com base na justiça e na igualdade social.</p>
+        </div>
+
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

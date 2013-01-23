@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".side-bar").find(".seja-um-doador").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li class="active">Seja um doador de órgãos</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Seja um doador de órgãos</h1>
+    </div>
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <p>O passo principal para você se tornar um doador é conversar com a sua família e deixar bem claro o seu desejo. Não é necessário deixar nada por escrito. Porém, os familiares devem se comprometer a autorizar a doação por escrito após a morte. A doação de órgãos é um ato pelo qual você manifesta a vontade de que, a partir do momento da constatação da morte encefálica, uma ou mais partes do seu corpo (órgãos ou tecidos), em condiçães de serem aproveitadas para transplante, possam ajudar outras pessoas.</p>
+            <p>Fonte: <a href="http://portalsaude.saude.gov.br/portalsaude/" target="_blank">portal.saude.gov.br</a> Veja a respostas para as dúvidas mais freqüentes neste endereço eletrônico.</p>
+            <p>Saiba mais sobre a doação de orgãos: <a href="http://www.adote.org.br" target="_blank">adote.org.br</a></p>
+            <p><a href="http://www.adote.org.br/cadastro_doadores.php" target="_blank">Veja a relação de alguns doadores famosos.</a></p>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

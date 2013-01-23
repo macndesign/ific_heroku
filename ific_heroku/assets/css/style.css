@@ -1,0 +1,103 @@
+/* Margem superior para distanciar o menu fixo do conteúdo */
+body {
+    padding-top: 60px;
+    background: #f7f8f9 url(../img/gradient_texture.jpg) repeat-x;
+}
+
+/* Background do menu fixo */
+.navbar-inner {
+    background-color: #9c020d;
+    background-image: -moz-linear-gradient(top, #c20e1a, #9c020d);
+    background-image: -ms-linear-gradient(top, #c20e1a, #9c020d);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#c20e1a), to(#9c020d));
+    background-image: -webkit-linear-gradient(top, #c20e1a, #9c020d);
+    background-image: -o-linear-gradient(top, #c20e1a, #9c020d);
+    background-image: linear-gradient(top, #c20e1a, #9c020d);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr = '#c20e1a', endColorstr = '#9c020d', GradientType = 0);
+}
+
+/* Cor da fonte do menu fixo */
+.navbar .nav > li > a {
+    color: #e9cbcd;
+}
+
+/* Cor da fonte do menu quando ativo ou mouse-over */
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #880d16;
+}
+
+/* Cor da fonte da logo */
+.navbar .brand {
+    color: #e9cbcd;
+}
+
+/* Estilo do campo de busca */
+.navbar-search .search-query {
+    color: #000;
+    background-color: #8c1c24;
+    border: 1px solid #790008;
+}
+
+/* Cor da fonte do campo de busca */
+.navbar-search .search-query:-moz-placeholder {
+    color: #e9cbcd;
+}
+.navbar-search .search-query::-webkit-input-placeholder {
+    color: #e9cbcd;
+}
+
+/* Background do item do menu drop-down no mouse-over */
+.dropdown-menu li > a:hover,
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+    background-color: #c20e1a;
+}
+
+/* Estilo da lista que divide itens no menu fixo */
+.navbar .divider-vertical {
+    background-color: #790008;
+    border-right: 1px solid #d2565f;
+}
+
+/* Background do item do menu lateral */
+.nav-list > .active > a,
+.nav-list > .active > a:hover {
+    background-color: #c20e1a;
+}
+
+/* Cor padrão de links */
+a {
+    color: #790008;
+}
+
+/* Cor padrão de links no mouse-over */
+a:hover {
+    color: #53050a;
+}
+
+/* Estilo para o rodapé */
+.footer {
+    margin-top: 45px;
+    padding: 35px 0 36px;
+    border-top: 1px solid #e5e5e5;
+}
+.footer p {
+    margin-bottom: 0;
+    color: #555;
+}
+
+/* Estilo da linha dos títulos */
+.page-header {
+    border-bottom: 1px solid #dadada;
+}
+
+/* Estilo para os botões do formulário */
+.form-actions {
+    background: url(../img/bg_actions_bar.png) no-repeat;
+    border-top: 1px solid #eeeeee;
+    *zoom: 1;
+}

@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".prevencao").addClass("active");
+            $(".prevencao").find(".alimentacao-e-sedentarismo").addClass("active");
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li>Prevenção <span class="divider">/</span></li>
+    <li class="active">Alimentação e Sedentarismo</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Prevenção</h1>
+    </div>
+
+    <div class="row">
+        <div class="span5 pull-left">
+            <h2>Alimentação e Sedentarismo</h2><br />
+            <p>A obesidade, o diabetes, o aumento de colesterol ou triglicerídeos no sangue e a vida sedentária podem levar ao acúmulo de gordura no fígado – esteatose hepática ou “fígado gorduroso” – que pode causar problemas futuros no funcionamento do seu fígado se não tratada adequadamente. Então, procure manter uma alimentação saudável e praticar exercícios físicos regularmente.</p>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}
