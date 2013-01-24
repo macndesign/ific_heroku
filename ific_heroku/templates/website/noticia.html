@@ -1,4 +1,4 @@
-{% extends "core/base.html" %}
+{% extends "website/base.html" %}
 
 {% block extra_js %}
     <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
@@ -36,7 +36,7 @@
             {% if noticia.texto and noticia.foto %}
                 <div class="span4 pull-left">
                     <div class="thumbnail">
-                        <img src="{{ noticia.thumbnail_image.url }}" alt="{{ noticia.titulo }}" />
+                        <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}" />
                     </div>
                 </div>
                 <div class="span5 pull-left">{{ noticia.texto|linebreaksbr }}</div>

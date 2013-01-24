@@ -7,7 +7,7 @@ import datetime
 # Create your models here.
 class SalaImprensa(models.Model):
     titulo = models.CharField(u'Título', max_length=120)
-    slug = models.SlugField(unique_for_date=True, null=True, blank=True)
+    slug = models.SlugField(max_length=120, null=True, blank=True)
     data_pub = models.DateTimeField(u'Data de publicação', default=datetime.datetime.now())
     subtitulo = models.CharField(u'Subtítulo', max_length=120, null=True, blank=True)
     video = models.TextField(u'Vídeo', null=True, blank=True)
