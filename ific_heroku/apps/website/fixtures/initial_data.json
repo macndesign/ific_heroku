@@ -393,16 +393,7 @@
             "arquivo": "docs/publicacoes/A_New_Biliodigestive_Anastomosis_Technique_1.pdf", 
             "descricao": "Arterial complications after liver transplantation are frequent. Hepatic artery thrombosis\r\n(HAT) is usually associated with biliary complications. Herein we have reported a case of\r\na patient who was admitted for jaundice, itch, and elevated aspartate aminotransferase and\r\nalanine aminotransferase levels at 6 weeks after liver transplantation. HAT associated\r\nwith a biloma was diagnosed and an urgent operation performed requiring a new\r\nbiliodigestive anastomosis technique. Fourteen months after the first transplant, the\r\npatient was retransplanted. The operation performed may be an alternative to treat biliary\r\ncomplications due to late HAT."
         }
-    }, 
-    {
-        "pk": 2, 
-        "model": "website.publicacaocientifica", 
-        "fields": {
-            "titulo": "Successful Organ Transplantation from Donors Poisoned with a Carbamate Insecticide", 
-            "arquivo": "docs/publicacoes/Successful_Organ_Transplantation_from_Donors_Poisoned_with_a_Carbamate_Insecticide.pdf", 
-            "descricao": "Currently, liver transplantation is the only option for patients with end-stage liver disease. In Brazil, the mortality rate on the waiting list is about 25% (1), because the number of patients awaiting allograft transplantation exceeds the number of organs offered for transplantation each year."
-        }
-    }, 
+    },
     {
         "pk": 3, 
         "model": "website.publicacaocientifica", 
