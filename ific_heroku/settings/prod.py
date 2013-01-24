@@ -84,8 +84,8 @@ INSTALLED_APPS += (
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 # STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-DEFAULT_FILE_STORAGE = 's3utils.MediaRootS3BotoStorage'
-STATICFILES_STORAGE = 's3utils.StaticRootS3BotoStorage'
+DEFAULT_FILE_STORAGE = 'settings.s3utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'settings.s3utils.StaticRootS3BotoStorage'
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
