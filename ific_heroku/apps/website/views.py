@@ -134,7 +134,7 @@ def fale_conosco(request):
                 subject='%s %s' % ('[Contato: IFIC]', subject),
                 body=body,
                 to=['contato@ific.org.br'],
-                headers={'Reply-To': 'site@ific.com.br'}
+                headers={'Reply-To': 'contato@ific.org.br'}
             )
 
             msg.send()

@@ -30,7 +30,7 @@ EMAIL_PORT = environ.get('EMAIL_PORT', 587)
 EMAIL_SUBJECT_PREFIX = '[%s] ' % SITE_NAME
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-use-tls
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = EMAIL_HOST_USER
