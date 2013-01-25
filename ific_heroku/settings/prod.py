@@ -24,7 +24,8 @@ EMAIL_HOST_PASSWORD = environ.get('EMAIL_HOST_PASSWORD', '')
 EMAIL_HOST_USER = environ.get('EMAIL_HOST_USER', 'your_email@example.com')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-port
-EMAIL_PORT = environ.get('EMAIL_PORT', 587)
+# EMAIL_PORT = environ.get('EMAIL_PORT', 587)
+EMAIL_PORT = int(environ.get('EMAIL_PORT', 587))
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-subject-prefix
 EMAIL_SUBJECT_PREFIX = '[%s] ' % SITE_NAME
