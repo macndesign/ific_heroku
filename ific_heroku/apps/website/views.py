@@ -129,7 +129,7 @@ def fale_conosco(request):
             message = form.cleaned_data['message']
             from_email = form.cleaned_data['from_email']
             body = u'Email: %s\nAssunto: %s\nMensagem: %s' % (from_email, subject, message)
-            send_mail(subject, body, from_email, ['mario@nd.com.br'], fail_silently=False)
+            send_mail(subject, body, from_email, ['macndesign@gmail.com'], fail_silently=False)
 
             css_message = 'alert-success'
             alert_message = u'Email enviado!'
