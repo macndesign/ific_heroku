@@ -131,9 +131,9 @@ def fale_conosco(request):
             body = u'Email: %s\nAssunto: %s\nMensagem: %s' % (from_email, subject, message)
 
             msg = EmailMessage(
-                subject='%s %s' % ('Contato IFIC', subject),
+                subject='%s %s' % ('[Contato: IFIC]', subject),
                 body=body,
-                to=['site@ific.com.br'],
+                to=['contato@ific.org.br'],
                 headers={'Reply-To': 'site@ific.com.br'}
             )
 
