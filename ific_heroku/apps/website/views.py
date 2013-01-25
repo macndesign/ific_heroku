@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Create your views here.
-from django.core.mail.message import EmailMessage
+from django.core.mail import send_mail
 from django.core.paginator import InvalidPage, EmptyPage, Paginator
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
@@ -129,15 +129,7 @@ def fale_conosco(request):
             message = form.cleaned_data['message']
             from_email = form.cleaned_data['from_email']
             body = u'Email: %s\nAssunto: %s\nMensagem: %s' % (from_email, subject, message)
-
-            msg = EmailMessage(
-                subject='%s %s' % ('[Contato: IFIC]', subject),
-                body=body,
-                to=['contato@ific.org.br'],
-                headers={'Reply-To': 'contato@ific.org.br'}
-            )
-
-            msg.send()
+            send_mail(subject, body, from_email, ['contato@ific.org.br'], fail_silently=False)
 
             css_message = 'alert-success'
             alert_message = u'Email enviado!'
