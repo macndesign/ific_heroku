@@ -6,17 +6,13 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
 from apps.website.forms import FaleConoscoForm
 from apps.website.models import Galeria, Equipe, PublicacaoCientifica, SalaImprensa
+from django.views.generic.list import ListView
 
-def sobre(request):
-    destaques = SalaImprensa.objects.filter(destaque=True)
-    context = {
-        'destaques': destaques,
-        }
-    return render_to_response(
-        'website/sobre-o-ific.html',
-        context,
-        RequestContext(request)
-    )
+class SobreListView(ListView):
+    queryset = SalaImprensa.objects.filter(destaque=True)
+    template_name = 'website/sobre-o-ific.html'
+    context_object_name = 'destaques'
+
 
 def galeria(request):
     items = Galeria.objects.all()

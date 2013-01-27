@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
+from apps.website.views import SobreListView
 
 urlpatterns = patterns('',
 
     # -*- Top Menu -*-
 
     # Sobre
-    url(r'^$', 'apps.website.views.sobre', name='sobre'),
+    url(r'^$', SobreListView.as_view(), name='sobre'),
 
     # Missão
     url(r'^missao/$', 'django.views.generic.simple.direct_to_template',
