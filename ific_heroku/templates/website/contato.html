@@ -2,6 +2,16 @@
 
 {% block extra_css %}
     <style>
+    ul.messages {
+        margin-left: 0;
+    }
+    ul.messages > li {
+        list-style: none;
+        padding: 8px 10px;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+    }
     .help-block ul.errorlist li {
         list-style: none;
     }
@@ -48,7 +58,7 @@
                 </ul>
             {% endif %}
 
-            <form class="form-horizontal" action="{% url core:contato %}" method="post">{% csrf_token %}
+            <form class="form-horizontal" action="{% url core:fale-conosco %}" method="post">{% csrf_token %}
                 {{ form.non_field_errors }}
                 <fieldset>
                     <div class="control-group{% if form.subject.errors %} error{% endif %}">

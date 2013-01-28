@@ -111,7 +111,7 @@ class ContatoView(FormView):
 
     def get_success_url(self):
         messages.add_message(self.request, messages.SUCCESS, u'Email enviado com sucesso.')
-        return reverse_lazy('core:contato')
+        return reverse_lazy('core:fale-conosco')
 
     def form_valid(self, form):
         form.send_mail()
@@ -120,33 +120,3 @@ class ContatoView(FormView):
     def form_invalid(self, form):
         messages.add_message(self.request, messages.ERROR, u'Formulário inválido.')
         return super(ContatoView, self).form_invalid(form)
-
-
-def fale_conosco(request):
-    form = FaleConoscoForm()
-
-    if request.method == 'POST':
-        form = FaleConoscoForm(request.POST)
-
-        if form.is_valid():
-            subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
-            from_email = form.cleaned_data['from_email']
-            body = u'Email: %s\nAssunto: %s\nMensagem: %s' % (from_email, subject, message)
-            send_mail(subject, body, from_email, ['macndesign@gmail.com'], fail_silently=False)
-
-            css_message = 'alert-success'
-            alert_message = u'Email enviado!'
-            context = {'form': form, 'message': alert_message, 'css_message': css_message}
-            return render_to_response('website/fale-conosco.html', context, RequestContext(request))
-
-        else:
-            form = FaleConoscoForm(request.POST)
-            css_message = 'alert-error'
-            alert_message = u'Verifique os campos com erros de preenchimento.'
-            context = {'form': form, 'message': alert_message, 'css_message': css_message}
-            return render_to_response('website/fale-conosco.html', context, RequestContext(request))
-
-    context = {'form': form}
-
-    return render_to_response('website/fale-conosco.html', context, RequestContext(request))

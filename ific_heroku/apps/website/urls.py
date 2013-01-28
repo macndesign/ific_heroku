@@ -48,10 +48,7 @@ urlpatterns = patterns('',
     url(r'^noticia/(?P<year>\d+)/(?P<month>\d+)/(?P<day>\d+)/(?P<slug>[-\w]+)/(?P<pk>\d+)/$', NoticiaDateDetailView.as_view(), name="noticia"),
 
     # Fale conosco
-    url(r'^fale-conosco/$', 'apps.website.views.fale_conosco', name='fale-conosco'),
-
-    # Fale conosco
-    url(r'^contato/$', ContatoView.as_view(), name='contato'),
+    url(r'^fale-conosco/$', ContatoView.as_view(), name='fale-conosco'),
 
     # Publicações científicas
     url(r'^publicacao-cientifica/$', PublicacaoCientificaListView.as_view(), name='publicacao-cientifica'),
