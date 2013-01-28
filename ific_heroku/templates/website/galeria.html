@@ -42,21 +42,24 @@
 <ul class="breadcrumb">
     <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
     <li class="active">Galeria</li>
+
+    {% if is_paginated %}
     <li class="pull-right">
-        {% if items.has_previous %}
-          <a href="?page={{ items.previous_page_number }}">
-              <i class="icon-arrow-left"></i>
-              Anterior
-          </a> -
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">
+                <i class="icon-arrow-left"></i>
+                Anterior
+            </a> -
         {% endif %}
-        Página {{ items.number }} de {{ items.paginator.num_pages }}
-        {% if items.has_next %}
-            - <a href="?page={{ items.next_page_number }}">
+        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+        {% if page_obj.has_next %}
+            - <a href="?page={{ page_obj.next_page_number }}">
                 Próxima
                 <i class="icon-arrow-right"></i>
             </a>
         {% endif %}
     </li>
+    {% endif %}
 </ul>
 {% endblock %}
 
@@ -68,8 +71,8 @@
     </div>
 
     <ul class="thumbnails">
-    {% if items.object_list %}
-        {% for foto in items.object_list %}
+    {% if page_obj.object_list %}
+        {% for foto in page_obj.object_list %}
             <li class="span3">
                 <div class="thumbnail" style="background: #f1f1f1; height: 210px; overflow: hidden;">
                     <a style="background: #f7f7f7; height: 150px; overflow: hidden;" class="thumbnail fancybox-thumb" rel="fancybox-thumb" href="{{ foto.foto.url }}" title="{% if foto.texto %}{{ foto.texto }}{% endif %}">

@@ -7,6 +7,7 @@ from django.template.context import RequestContext
 from apps.website.forms import FaleConoscoForm
 from apps.website.models import Galeria, Equipe, PublicacaoCientifica, SalaImprensa
 from django.views.generic.list import ListView
+from django.views.generic.base import TemplateView
 
 class SobreListView(ListView):
     queryset = SalaImprensa.objects.filter(destaque=True)
@@ -14,67 +15,80 @@ class SobreListView(ListView):
     context_object_name = 'destaques'
 
 
-def galeria(request):
-    items = Galeria.objects.all()
-    paginator = Paginator(items, 9)
-
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
-
-    try:
-        items = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        items = paginator.page(paginator.num_pages)
-
-    return render_to_response(
-        'website/galeria.html',
-        {'items': items},
-        context_instance=RequestContext(request)
-    )
+class MissaoTemplateView(TemplateView):
+    template_name = 'website/missao.html'
 
 
-def equipe(request):
-    items = Equipe.objects.all()
-    paginator = Paginator(items, 9)
-
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
-
-    try:
-        items = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        items = paginator.page(paginator.num_pages)
-
-    return render_to_response(
-        'website/equipe.html',
-        {'items': items},
-        context_instance=RequestContext(request)
-    )
+class ProjetosTemplateView(TemplateView):
+    template_name = 'website/projetos.html'
 
 
-def publicacao_cientifica(request):
-    items = PublicacaoCientifica.objects.all()
-    paginator = Paginator(items, 9)
+class TransplateDiagnosticoTemplateView(TemplateView):
+    template_name = 'website/transplante-diagnostico.html'
 
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
 
-    try:
-        items = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        items = paginator.page(paginator.num_pages)
+class TransplateCirurgiaTemplateView(TemplateView):
+    template_name = 'website/transplante-cirurgia.html'
 
-    return render_to_response(
-        'website/publicacao-cientifica.html',
-        {'items': items},
-        context_instance=RequestContext(request)
-    )
+
+class TransplantePosOperatorioTemplateView(TemplateView):
+    template_name = 'website/transplante-pos-operatorio.html'
+
+
+class TransplanteHistoriasVidaTemplateView(TemplateView):
+    template_name = 'website/transplante-historias-de-vida.html'
+
+
+class PrevencaoDoencasHepaticasTemplateView(TemplateView):
+    template_name = 'website/prevencao-doencas-hepaticas.html'
+
+
+class PrevencaoAlcoolismoTemplateView(TemplateView):
+    template_name = 'website/prevencao-alcoolismo.html'
+
+
+class PrevencaoPoluentesAmbientaisTemplateView(TemplateView):
+    template_name = 'website/prevencao-poluentes-ambientais.html'
+
+
+class PrevencaoAlimentacaoSedentarismoTemplateView(TemplateView):
+    template_name = 'website/prevencao-alimentacao-e-sedentarismo.html'
+
+
+class PrevencaoMedicamentosTemplateView(TemplateView):
+    template_name = 'website/prevencao-medicamentos.html'
+
+
+class ComoApoiarTemplateView(TemplateView):
+    template_name = 'website/como-apoiar.html'
+
+
+class SejaDoadorTemplateView(TemplateView):
+    template_name = 'website/seja-um-doador.html'
+
+
+class GaleriaListView(ListView):
+    model = Galeria
+    template_name = 'website/galeria.html'
+    paginate_by = 9
+
+
+class EquipeListView(ListView):
+    model = Equipe
+    template_name = 'website/equipe.html'
+    paginate_by = 9
+
+
+class PublicacaoCientificaListView(ListView):
+    model = PublicacaoCientifica
+    template_name = 'website/publicacao-cientifica.html'
+    paginate_by = 9
+
+
+class NoticiaListView(ListView):
+    model = SalaImprensa
+    template_name = 'website/noticias.html'
+    paginate_by = 9
 
 
 def noticias(request):
