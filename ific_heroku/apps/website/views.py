@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # Create your views here.
 from django.core.mail import send_mail
-from django.core.paginator import InvalidPage, EmptyPage, Paginator
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
 from apps.website.forms import FaleConoscoForm
 from apps.website.models import Galeria, Equipe, PublicacaoCientifica, SalaImprensa
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
+from django.views.generic.dates import DateDetailView
 
 class SobreListView(ListView):
     queryset = SalaImprensa.objects.filter(destaque=True)
@@ -91,41 +91,15 @@ class NoticiaListView(ListView):
     paginate_by = 9
 
 
-def noticias(request):
-    items = SalaImprensa.objects.all()
-    paginator = Paginator(items, 9)
-
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
-
-    try:
-        items = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        items = paginator.page(paginator.num_pages)
-
-    return render_to_response(
-        'website/noticias.html',
-        {'items': items},
-        context_instance=RequestContext(request)
-    )
-
-
-def noticia(request, year, month, day, slug):
-    noticia = get_object_or_404(
-        SalaImprensa,
-        data_pub__year = year,
-        data_pub__month = month,
-        data_pub__day = day,
-        slug = slug
-    )
-    context = {'noticia': noticia}
-    return render_to_response(
-        'website/noticia.html',
-        context,
-        RequestContext(request)
-    )
+class NoticiaDateDetailView(DateDetailView):
+    model = SalaImprensa
+    template_name = 'website/noticia.html'
+    context_object_name = 'noticia'
+    date_field = 'data_pub'
+    year_format = '%Y'
+    month_format = '%m'
+    day_format = '%d'
+    slug_field = 'slug'
 
 
 def fale_conosco(request):

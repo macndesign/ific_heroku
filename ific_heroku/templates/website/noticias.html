@@ -42,7 +42,7 @@
         {% for item in page_obj.object_list %}
             <div class="row">
                 <div class="span9">
-                    <h2><a href="{{ item.get_absolute_url }}">{{ item.titulo }}</a></h2><br />
+                    <h2><a href="{% url core:noticia item.data_pub.year item.data_pub.month item.data_pub.day item.slug item.pk %}">{{ item.titulo }}</a></h2><br />
                 </div>
                 {% if item.subtitulo %}
                     <div class="span9">
