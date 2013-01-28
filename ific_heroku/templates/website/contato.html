@@ -1,0 +1,96 @@
+{% extends "website/base.html" %}
+
+{% block extra_css %}
+    <style>
+    .help-block ul.errorlist li {
+        list-style: none;
+    }
+    .help-block ul.errorlist {
+        margin: 0;
+    }
+    </style>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+        $(function(){
+            $(".side-bar").find(".fale-conosco").addClass("active");
+            $("input[type=text]:first").focus();
+            $(".error").find("input[type=text]:first").focus();
+            $(".error").find("textarea").focus();
+        });
+    </script>
+{% endblock %}
+
+<!-- Breadcrumber -->
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li class="active">Fale conosco</li>
+</ul>
+{% endblock %}
+
+<!-- Título -->
+{% block content %}
+
+    <div class="page-header">
+        <h1>Fale conosco</h1>
+    </div>
+
+    <div class="row">
+        <div class="span5 pull-left">
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form class="form-horizontal" action="{% url core:contato %}" method="post">{% csrf_token %}
+                {{ form.non_field_errors }}
+                <fieldset>
+                    <div class="control-group{% if form.subject.errors %} error{% endif %}">
+                        <label class="control-label" for="id_subject">{{ form.subject.label }}</label>
+                        <div class="controls">
+                            {{ form.subject }}
+                            {% if form.subject.errors %}
+                                <span class="help-block">{{ form.subject.errors }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="control-group{% if form.from_email.errors %} error{% endif %}">
+                        <label class="control-label" for="id_from_email">{{ form.from_email.label }}</label>
+                        <div class="controls">
+                            {{ form.from_email }}
+                            {% if form.from_email.errors %}
+                                <span class="help-block">{{ form.from_email.errors }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="control-group{% if form.message.errors %} error{% endif %}">
+                        <label class="control-label" for="id_message">{{ form.message.label }}</label>
+                        <div class="controls">
+                            {{ form.message }}
+                            {% if form.message.errors %}
+                                <span class="help-block">{{ form.message.errors }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <ul class="thumbnails pull-right">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/360x268" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}
