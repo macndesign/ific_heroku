@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 # Create your views here.
 from django.core.mail import send_mail
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from apps.website.forms import FaleConoscoForm
 from apps.website.models import Galeria, Equipe, PublicacaoCientifica, SalaImprensa
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.dates import DateDetailView
+from django.views.generic.edit import FormView
+from django.core.urlresolvers import reverse_lazy
+from django.contrib import messages
 
 class SobreListView(ListView):
     queryset = SalaImprensa.objects.filter(destaque=True)
@@ -100,6 +103,23 @@ class NoticiaDateDetailView(DateDetailView):
     month_format = '%m'
     day_format = '%d'
     slug_field = 'slug'
+
+
+class ContatoView(FormView):
+    template_name = 'website/contato.html'
+    form_class = FaleConoscoForm
+
+    def get_success_url(self):
+        messages.add_message(self.request, messages.SUCCESS, u'Email enviado com sucesso.')
+        return reverse_lazy('core:contato')
+
+    def form_valid(self, form):
+        form.send_mail()
+        return super(ContatoView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        messages.add_message(self.request, messages.ERROR, u'Formulário inválido.')
+        return super(ContatoView, self).form_invalid(form)
 
 
 def fale_conosco(request):

@@ -50,6 +50,9 @@ urlpatterns = patterns('',
     # Fale conosco
     url(r'^fale-conosco/$', 'apps.website.views.fale_conosco', name='fale-conosco'),
 
+    # Fale conosco
+    url(r'^contato/$', ContatoView.as_view(), name='contato'),
+
     # Publicações científicas
     url(r'^publicacao-cientifica/$', PublicacaoCientificaListView.as_view(), name='publicacao-cientifica'),
 )
