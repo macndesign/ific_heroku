@@ -15,11 +15,11 @@ class FaleConoscoForm(forms.Form):
         widget=forms.Textarea(attrs={'class': 'input-xlarge', 'rows': 5})
     )
 
-    def send_mail(self):
+    def enviar_email(self):
         return send_mail(
             self.cleaned_data['subject'],
             self.cleaned_data['message'],
             self.cleaned_data['from_email'],
             ['macndesign@gmail.com'],
-            fail_silently=False
+            fail_silently = False
         )

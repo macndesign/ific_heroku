@@ -114,7 +114,7 @@ class ContatoView(FormView):
         return reverse_lazy('core:fale-conosco')
 
     def form_valid(self, form):
-        form.send_mail()
+        form.enviar_email()
         return super(ContatoView, self).form_valid(form)
 
     def form_invalid(self, form):
