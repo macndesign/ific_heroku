@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
 
 class SobreListView(ListView):
-    queryset = SalaImprensa.objects.filter(destaque=True)
+    queryset = SalaImprensa.destaques.all()
     template_name = 'website/sobre-o-ific.html'
     context_object_name = 'destaques'
 

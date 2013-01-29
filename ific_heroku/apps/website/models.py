@@ -4,6 +4,10 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.template.defaultfilters import slugify
 
+class SalaImprensaDestaqueManager(models.Manager):
+    def get_query_set(self):
+        return super(SalaImprensaDestaqueManager, self).get_query_set().filter(destaque=True)
+
 # Create your models here.
 class SalaImprensa(models.Model):
     titulo = models.CharField(u'Título', max_length=120)
@@ -15,6 +19,10 @@ class SalaImprensa(models.Model):
     link = models.CharField(u'Link', max_length=120, null=True, blank=True)
     foto = models.ImageField('Foto', upload_to='images/sala_imprensa', null=True, blank=True)
     destaque = models.BooleanField(default=False)
+
+    # Manager
+    objects = models.Manager()
+    destaques = SalaImprensaDestaqueManager()
 
     class Meta:
         db_table = 'website_salaimprensa'
