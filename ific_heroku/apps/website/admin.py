@@ -4,6 +4,8 @@ from apps.website.models import PublicacaoCientifica
 
 class SalaImprensaAdmin(admin.ModelAdmin):
     list_display = ['titulo', 'data_pub']
+    prepopulated_fields = {"slug": ('titulo',)}
+
     class Meta:
         ordering = ['-data_pub']
 

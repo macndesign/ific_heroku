@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-from django.core.urlresolvers import reverse
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.template.defaultfilters import slugify
-import datetime
 
 # Create your models here.
 class SalaImprensa(models.Model):
     titulo = models.CharField(u'Título', max_length=120)
     slug = models.SlugField(max_length=120, null=True, blank=True)
-    data_pub = models.DateTimeField(u'Data de publicação', default=datetime.datetime.now())
+    data_pub = models.DateTimeField(u'Data de publicação', auto_now_add=True)
     subtitulo = models.CharField(u'Subtítulo', max_length=120, null=True, blank=True)
     video = models.TextField(u'Vídeo', null=True, blank=True)
     texto = models.TextField('Texto', null=True, blank=True)
@@ -16,31 +16,30 @@ class SalaImprensa(models.Model):
     foto = models.ImageField('Foto', upload_to='images/sala_imprensa', null=True, blank=True)
     destaque = models.BooleanField(default=False)
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.titulo)
-            super(SalaImprensa, self).save(*args, **kwargs)
-    
     class Meta:
         db_table = 'website_salaimprensa'
         verbose_name = u'Sala de imprensa'
         verbose_name_plural = u'Salas de imprensa'
         ordering = ['-data_pub']
 
+    @models.permalink
     def get_absolute_url(self):
-        return reverse(
-            'core:noticia',
-            args=[
-                str(self.data_pub.year),
-                str(self.data_pub.month).zfill(2),
-                str(self.data_pub.day).zfill(2),
-                str(self.slug),
-            ]
+        return ('core:noticia', None, {
+                'year': str(self.data_pub.year),
+                'month': str(self.data_pub.month).zfill(2),
+                'day': str(self.data_pub.day).zfill(2),
+                'slug': str(self.slug),
+            }
         )
-
 
     def __unicode__(self):
         return self.titulo
+
+
+@receiver(pre_save, sender=SalaImprensa)
+def save_slug_sala_imprensa(sender, instance, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(sender.titulo)
 
 
 class Equipe(models.Model):
@@ -50,7 +49,7 @@ class Equipe(models.Model):
     email = models.EmailField('Email', null=True, blank=True)
     site = models.URLField('Site', verify_exists=False, null=True, blank=True)
     foto = models.ImageField('Foto do colaborador', upload_to='images/equipe', null=True, blank=True)
-    data_pub = models.DateTimeField(u'Data de publicação', default=datetime.datetime.now())
+    data_pub = models.DateTimeField(u'Data de publicação', auto_now_add=True)
     
     class Meta:
         db_table = 'website_equipe'
@@ -67,7 +66,7 @@ class Galeria(models.Model):
     foto = models.ImageField('Foto', upload_to='images/gallery', null=True, blank=True)
     thumb = models.ImageField('Thumb', upload_to='images/gallery', null=True, blank=True)
     texto = models.TextField(u'Subtítulo da foto', null=True, blank=True)
-    data_pub = models.DateTimeField(u'Data de publicação', default=datetime.datetime.now())
+    data_pub = models.DateTimeField(u'Data de publicação', auto_now_add=True)
 
     class Meta:
         db_table = 'website_galeria'
