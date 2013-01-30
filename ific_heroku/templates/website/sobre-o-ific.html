@@ -1,4 +1,5 @@
 {% extends "website/base.html" %}
+{% load url from future %}
 
 {% block extra_js %}
     <script type="text/javascript">
@@ -11,7 +12,7 @@
 <!-- Breadcrumber -->
 {% block breadcrumb %}
 <ul class="breadcrumb">
-    <li><a href="{% url core:sobre %}">Home</a> <span class="divider">/</span></li>
+    <li><a href="{% url "core:sobre" %}">Home</a> <span class="divider">/</span></li>
     <li class="active">Sobre o IFIC</li>
 </ul>
 {% endblock %}

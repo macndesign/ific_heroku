@@ -1,24 +1,25 @@
+{% load url from future %}
 <ul class="nav">
-    <li class="home"><a href="{% url core:sobre %}">Home</a></li>
-    <li class="missao"><a href="{% url core:missao %}">Missão</a></li>
-    <li class="projetos"><a href="{% url core:projetos %}">Projetos</a></li>
+    <li class="home"><a href="{% url "core:sobre" %}">Home</a></li>
+    <li class="missao"><a href="{% url "core:missao" %}">Missão</a></li>
+    <li class="projetos"><a href="{% url "core:projetos" %}">Projetos</a></li>
     <li class="dropdown transplante">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transplante <b class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li class="diagnostico"><a href="{% url core:transplante-diagnostico %}">Diagnóstico</a></li>
-            <li class="cirurgia"><a href="{% url core:transplante-cirurgia %}">Cirurgia</a></li>
-            <li class="pos-operatorio"><a href="{% url core:transplante-pos-operatorio %}">Pós-operatório</a></li>
-            <li class="historias-de-vida"><a href="{% url core:transplante-historias-de-vida %}">Histórias de vida</a></li>
+            <li class="diagnostico"><a href="{% url "core:transplante-diagnostico" %}">Diagnóstico</a></li>
+            <li class="cirurgia"><a href="{% url "core:transplante-cirurgia" %}">Cirurgia</a></li>
+            <li class="pos-operatorio"><a href="{% url "core:transplante-pos-operatorio" %}">Pós-operatório</a></li>
+            <li class="historias-de-vida"><a href="{% url "core:transplante-historias-de-vida" %}">Histórias de vida</a></li>
         </ul>
     </li>
     <li class="dropdown prevencao">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prevenção <b class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li class="doencas-hepaticas"><a href="{% url core:prevencao-doencas-hepaticas %}">Doenças Hepáticas</a></li>
-            <li class="alcoolismo"><a href="{% url core:prevencao-alcoolismo %}">Alcoolismo</a></li>
-            <li class="poluentes-ambientais"><a href="{% url core:prevencao-poluentes-ambientais %}">Poluentes Ambientais</a></li>
-            <li class="alimentacao-e-sedentarismo"><a href="{% url core:prevencao-alimentacao-e-sedentarismo %}">Alimentação e Sedentarismo</a></li>
-            <li class="medicamentos"><a href="{% url core:prevencao-medicamentos %}">Medicamentos</a></li>
+            <li class="doencas-hepaticas"><a href="{% url "core:prevencao-doencas-hepaticas" %}">Doenças Hepáticas</a></li>
+            <li class="alcoolismo"><a href="{% url "core:prevencao-alcoolismo" %}">Alcoolismo</a></li>
+            <li class="poluentes-ambientais"><a href="{% url "core:prevencao-poluentes-ambientais" %}">Poluentes Ambientais</a></li>
+            <li class="alimentacao-e-sedentarismo"><a href="{% url "core:prevencao-alimentacao-e-sedentarismo" %}">Alimentação e Sedentarismo</a></li>
+            <li class="medicamentos"><a href="{% url "core:prevencao-medicamentos" %}">Medicamentos</a></li>
         </ul>
     </li>
 </ul>
